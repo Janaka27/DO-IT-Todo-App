@@ -63,6 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
 
             AppState.currentUser = new User((int) userId, username, email, password);
+            SessionPrefs.saveUserId(this, (int) userId);
             startActivity(new Intent(this, HomeActivity.class));
             finishAffinity();
         });

@@ -41,6 +41,7 @@ public class SignInActivity extends AppCompatActivity {
             }
 
             AppState.currentUser = user;
+            SessionPrefs.saveUserId(this, user.id);
 
             startActivity(new Intent(this, HomeActivity.class));
             finish();

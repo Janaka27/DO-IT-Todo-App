@@ -38,6 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
                 .setMessage("Do you want to sign out?")
                 .setPositiveButton("Sign out", (dialog, which) -> {
                     AppState.signOut();
+                    SessionPrefs.clear(this);
                     startActivity(new Intent(this, SignInActivity.class));
                     finishAffinity();
                 })

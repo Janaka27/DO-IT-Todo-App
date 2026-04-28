@@ -20,7 +20,9 @@ public class SplashActivity extends AppCompatActivity {
 
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, OnboardingActivity.class));
+            restoreSession();
+            Class<?> next = AppState.currentUser == null ? OnboardingActivity.class : HomeActivity.class;
+            startActivity(new Intent(SplashActivity.this, next));
             finish();
         }, 2200);
     }
@@ -31,6 +33,24 @@ public class SplashActivity extends AppCompatActivity {
             dbHelper.getWritableDatabase();
         } catch (Exception e) {
             Log.e(TAG, "Database initialization failed", e);
+        }
+    }
+
+    private void restoreSession() {
+        if (AppState.currentUser != null) {
+            return;
+        }
+        int savedUserId = SessionPrefs.getUserId(this);
+        if (savedUserId <= 0) {
+            return;
+        }
+        try (DBHelper dbHelper = new DBHelper(this)) {
+            User user = dbHelper.getUserById(savedUserId);
+            if (user != null) {
+                AppState.currentUser = user;
+            } else {
+                SessionPrefs.clear(this);
+            }
         }
     }
 }

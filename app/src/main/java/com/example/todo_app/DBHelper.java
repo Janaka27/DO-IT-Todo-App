@@ -125,6 +125,27 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    @Nullable
+    public User getUserById(int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT id, userName, email, password FROM " + TABLE_USERS + " WHERE id = ? LIMIT 1",
+                new String[]{String.valueOf(userId)}
+        );
+        try {
+            if (!cursor.moveToFirst()) {
+                return null;
+            }
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+            String username = cursor.getString(cursor.getColumnIndexOrThrow("userName"));
+            String storedEmail = cursor.getString(cursor.getColumnIndexOrThrow("email"));
+            String storedPassword = cursor.getString(cursor.getColumnIndexOrThrow("password"));
+            return new User(id, username, storedEmail, storedPassword);
+        } finally {
+            cursor.close();
+        }
+    }
+
     public boolean updateUserProfile(int userId, String username, String email) {
         String normalizedEmail = normalizeEmail(email);
         SQLiteDatabase db = this.getWritableDatabase();
