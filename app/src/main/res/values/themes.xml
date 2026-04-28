@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.TODO_APP" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/deep_purple</item>
+        <item name="colorSecondary">@color/accent_cyan</item>
+        <item name="android:statusBarColor">@color/deep_purple</item>
+        <item name="android:navigationBarColor">@color/deep_purple</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.TODO_APP" parent="Base.Theme.TODO_APP" />
+</resources>

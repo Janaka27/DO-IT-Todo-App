@@ -1,0 +1,5 @@
+<resources>
+    <style name="Base.Theme.TODO_APP" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>

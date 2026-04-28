@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_gradient"
+    android:padding="24dp">
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:src="@drawable/onboarding_calendar" />
+
+    <TextView
+        android:id="@+id/taglineText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/taglineAnchor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="401dp"
+        android:gravity="center"
+        android:text="Plan your day, track your tasks,\nstay focused."
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <View
+        android:id="@+id/taglineAnchor"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_alignBottom="@id/nextButton"
+        android:layout_marginEnd="12dp"
+        android:layout_toLeftOf="@+id/nextButton"
+        android:layout_toStartOf="@+id/nextButton"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="14dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_pill_light" />
+
+        <View
+            android:layout_width="24dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_pill_light" />
+
+        <View
+            android:layout_width="14dp"
+            android:layout_height="7dp"
+            android:background="@drawable/bg_pill_light" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/nextButton"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="160dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Next"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/onboarding_next_button" />
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="deep_purple">#5B2D8E</color>
+    <color name="secondary_purple">#7B52AE</color>
+    <color name="accent_cyan">#32A6DE</color>
+    <color name="light_card">#EFE7FA</color>
+    <color name="task_text_dark">#2B1F3D</color>
+    <color name="task_text_subtle">#776B86</color>
+    <color name="danger_red">#C62828</color>
+</resources>
