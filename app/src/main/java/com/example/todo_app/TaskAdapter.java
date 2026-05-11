@@ -92,7 +92,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             return;
         }
         TaskItem existing = tasks.get(index);
-        View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_add_task, null, false);
+        View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_task, null, false);
         TextView title = dialogView.findViewById(R.id.dialogTitle);
         EditText taskInput = dialogView.findViewById(R.id.taskInput);
         EditText dateInput = dialogView.findViewById(R.id.dateInput);

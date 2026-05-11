@@ -23,7 +23,9 @@
         android:hint="Enter Username"
         app:boxBackgroundColor="#FFFFFF"
         app:boxBackgroundMode="filled"
-        app:boxStrokeColor="#FFFFFF">
+        app:boxStrokeColor="#FFFFFF"
+        app:startIconDrawable="@drawable/ic_user"
+        app:startIconTint="@color/task_text_subtle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editUsernameInput"

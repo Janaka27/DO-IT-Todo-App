@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="ADD NEW TASK"
+            android:text="EDIT TASK"
             android:textColor="@color/deep_purple"
             android:textSize="35sp" />
 
@@ -137,7 +137,7 @@
                 android:layout_marginStart="12dp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="ADD"
+                android:text="UPDATE"
                 android:textColor="@color/deep_purple"
                 android:textStyle="bold"
                 app:backgroundTint="#CECADA"

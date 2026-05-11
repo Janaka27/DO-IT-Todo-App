@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ import java.util.Locale;
 public class ProfileActivity extends AppCompatActivity {
     private TextView usernameValue;
     private TextView emailValue;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class ProfileActivity extends AppCompatActivity {
             return;
         }
         setContentView(R.layout.activity_profile);
+
+        dbHelper = new DBHelper(this);
 
         usernameValue = findViewById(R.id.usernameValue);
         emailValue = findViewById(R.id.emailValue);
@@ -74,18 +78,29 @@ public class ProfileActivity extends AppCompatActivity {
                 return;
             }
             boolean emailChanged = !email.equals(AppState.currentUser.email);
-            if (emailChanged && AppState.USERS.containsKey(email)) {
+            if (emailChanged && dbHelper.isEmailExistsForOtherUser(email, AppState.currentUser.id)) {
                 emailInput.setError("Email already exists");
                 return;
             }
-            AppState.USERS.remove(AppState.currentUser.email);
+            boolean updated = dbHelper.updateUserProfile(AppState.currentUser.id, username, email);
+            if (!updated) {
+                Toast.makeText(this, "Unable to update profile", Toast.LENGTH_SHORT).show();
+                return;
+            }
             AppState.currentUser.username = username;
             AppState.currentUser.email = email;
-            AppState.USERS.put(email, AppState.currentUser);
             usernameValue.setText(username);
             emailValue.setText(email);
             dialog.dismiss();
         });
         dialog.show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
     }
 }
