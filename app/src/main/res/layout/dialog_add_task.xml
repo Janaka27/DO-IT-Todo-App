@@ -132,7 +132,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/addAction"
-                android:layout_width="96dp"
+                android:layout_width="123dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="12dp"
                 android:insetTop="0dp"
